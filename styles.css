@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+    min-height: 100vh; /* Ensure full viewport height */
+}
+
+body {
+    background-image: url("/home/lamay/my-blog/canva_wallpaper3.png");
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed; /* Keep background fixed while scrolling */
+    padding: 2rem 0; /* Add vertical padding to the entire body */
+}
+
+.intro {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 3rem 2rem; /* Increased padding */
+    gap: 2rem; /* Space between flex items */
+}
+
+.image-wrapper {
+    opacity: 0;
+    transform: scale(0.8); /* Start slightly smaller */
+    /* Transition is added by Javascript */
+}
+
+.cover-photos {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem; /* Increased gap between photos */
+    width: fit-content;
+    max-width: 600px;
+    margin-bottom: 2rem; /* Space after photos section */
+}
+
+/* For the selfies - make them fade in on page load */
+.my-selfies {
+    width: 250px;
+    height: auto;
+    border: 3px solid #ddd;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    opacity: 0;
+    animation: fadeIn 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    
+    to {
+        opacity: 1;
+    }
+}
+
+.my-selfies:hover {
+    border-color: #007bff;
+    transform: scale(1.05); /* Slightly reduced scale for subtlety */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.pic_1 { transform: rotate(-3deg); }
+.pic_2 { transform: rotate(3deg); }
+.pic_3 { transform: rotate(-3deg); }
+.pic_4 { transform: rotate(3deg); }
+.pic_5 { transform: rotate(-3deg); }
+.pic_6 { transform: rotate(3deg); }
+
+.main-content {
+    padding-top: 4rem; /* Increased top spacing */
+    margin: 0 auto;
+    max-width: 1200px;
+    padding-left: 2rem;
+    padding-right: 2rem;
+}
+
+h1 {
+    text-align: center;
+    font-family: "Caveat", cursive;
+    font-size: 4.5vw;
+    animation: fadeIn 1s ease-in-out;
+    margin: 3rem 0; /* Increased margin */
+    letter-spacing: 1px; /* Better letter spacing */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle text shadow */
+    color: white;
+    background-color: rgba(0, 39, 64, 0.8);
+}
+
+p {
+    font-family: "Courier New", monospace;
+    color: black;
+    padding: 2rem 3rem;
+    margin: 2rem auto;
+    line-height: 1.6;
+}
+
+
+.blurb {
+    max-width: 800px;
+    position: relative;
+    z-index: 1;
+    width: 80%; /* Adjust as needed */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: justify; /* Optional: makes text line up on both sides */
+}
+
+
+.blurb::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url("/home/lamay/my-blog/boxx.png");
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+    transform: scale(2.5);
+    filter: invert(1) brightness(1);
+}
+
+.icon-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 2rem; /* Increased gap */
+    max-width: 1200px;
+    margin: 4rem auto; /* Increased margin */
+    padding: 2rem;
+}
+
+.icon-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem; /* Add padding around icons */
+}
+
+.country-images {
+    width: 250px;
+    height: 250px;
+    object-fit: contain;
+    padding: 0.5rem;
+    opacity: 0;
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+    transform: translateY(30px);
+}
+
+.country-images.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.country-images:hover {
+    transform: scale(1.08);
+}
+
+.tooltip {
+    position: absolute;
+    top: calc(100% + 10px); /* Slightly lower position */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.85);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    pointer-events: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.icon-container:hover .tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(5px);
+}
+
+.and-icon {
+    filter: grayscale(100%) brightness(0%);
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Media Queries */
+
+/* This is the magic - it triggers the animation when the image comes into view */
+@media (prefers-reduced-motion: no-preference) {
+    .country-images {
+        view-timeline-name: --image;
+        view-timeline-axis: block;
+        animation: fadeUpIn linear both;
+        animation-timeline: --image;
+        animation-range: entry 25% cover 50%;
+    }
+}
+
+
+@media (min-width: 768px) {
+    .intro {
+        flex-direction: row;
+        align-items: flex-start;
+    }
+    
+    .intro_text {
+        margin-left: 3rem; /* Increased margin */
+        margin-top: 0;
+        flex: 1;
+    }
+    
+    h1 {
+        font-size: 3vw;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding: 1rem 0;
+    }
+    
+    h1 {
+        font-size: 7vw; /* Slightly reduced from 8vw */
+        margin: 2rem 0;
+    }
+    
+    .icon-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 1.5rem;
+        padding: 1rem;
+    }
+    
+    .country-images {
+        width: 130px;
+        height: 130px;
+    }
+    
+    .intro {
+        padding: 2rem 1rem;
+    }
+}
