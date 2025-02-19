@@ -122,16 +122,15 @@ p {
 .blurb::before {
     content: "";
     position: absolute;
-    top: 0;
+    top: -50px;
     left: 0;
     right: 0;
     bottom: 0;
     background-image: url("/home/lamay/my-blog/boxx.png");
-    background-size: 100% 100%;
+    background-size: 170% 300%;
     background-repeat: no-repeat;
     background-position: center;
     z-index: -1;
-    transform: scale(2.5);
     filter: invert(1) brightness(1);
 }
 
