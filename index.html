@@ -14,6 +14,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet" />
+    <!-- Vector map (CDN) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/jsvectormap@latest/dist/css/jsvectormap.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsvectormap@latest/dist/maps/world.js"></script>
   </head>
 
   <body>
@@ -43,218 +47,252 @@
     <hr />
 
     <main>
+      <section id="visited-map" aria-labelledby="visited-map-heading">
+        <h2 id="visited-map-heading">Where I've Been</h2>
+        <p class="visited-stats"><span id="visited-count">0</span> / <span id="visited-total">249</span> countries &amp; territories (<span id="visited-percent">0</span>%)</p>
+        <div class="progress" aria-hidden="true">
+          <div class="progress-bar" id="visited-progress" style="width: 0%"></div>
+        </div>
+        <div id="world-map" role="img" aria-label="World map highlighting countries I've visited"></div>
+        <div class="map-legend">
+          <span class="legend-swatch legend-visited"></span>
+          <span>Visited</span>
+          <span class="legend-swatch legend-unvisited"></span>
+          <span>Not visited yet</span>
+        </div>
+      </section>
       <section class="icon-grid" aria-label="Countries I've written about">
-        <div class="icon-container">
+        <div class="icon-container" data-cc="eg">
+          <a href="egypt.html" aria-label="Egypt">
+            <img src="country-images/egypt.png" alt="Egypt icon" class="country-images" loading="lazy" decoding="async" />
+          </a>
+          <span class="tooltip">Egypt</span>
+        </div>
+
+        <div class="icon-container" data-cc="ge">
+          <a href="georgia.html" aria-label="Georgia">
+            <img src="country-images/georgia.png" alt="Georgia icon" class="country-images" loading="lazy" decoding="async" />
+          </a>
+          <span class="tooltip">Georgia</span>
+        </div>
+
+        <div class="icon-container" data-cc="kz">
+          <a href="kazakhstan.html" aria-label="Kazakhstan">
+            <img src="country-images/kazakhstan.png" alt="Kazakhstan icon" class="country-images" loading="lazy" decoding="async" />
+          </a>
+          <span class="tooltip">Kazakhstan</span>
+        </div>
+        <div class="icon-container" data-cc="au">
           <a href="australia.html" aria-label="Australia">
             <img title="Australia" src="country-images/australia.png" alt="Australia icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Australia</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="do">
           <a href="dominican-republic.html" aria-label="Dominican Republic">
             <img title="Dominican Republic" src="country-images/dominican-republic.png" alt="Dominican Republic icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Dominican Republic</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="gt">
           <a href="guatemala.html" aria-label="Guatemala">
             <img src="country-images/guatemala.png" alt="Guatemala icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Guatemala</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="sv">
           <a href="el-salvador.html" aria-label="El Salvador">
             <img src="country-images/el-salvador.png" alt="El Salvador icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">El Salvador</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="th">
           <a href="thailand.html" aria-label="Thailand">
             <img src="country-images/thailand.png" alt="Thailand icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Thailand</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="tc">
           <a href="turks-and-caicos.html" aria-label="Turks &amp; Caicos Islands">
-            <img src="country-images/and.png" alt="Turks &amp; Caicos icon" class="country-images and-icon" loading="lazy" decoding="async" />
+            <img src="country-images/turks-and-caicos.png" alt="Turks &amp; Caicos icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Turks &amp; Caicos</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="is">
           <a href="iceland.html" aria-label="Iceland">
             <img src="country-images/iceland.png" alt="Iceland icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Iceland</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="va">
           <a href="vatican.html" aria-label="Vatican City">
             <img src="country-images/vatican.png" alt="Vatican City icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Vatican City</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="it">
           <a href="italy.html" aria-label="Italy">
             <img src="country-images/italy.png" alt="Italy icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Italy</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="li">
           <a href="liechtenstein.html" aria-label="Liechtenstein">
             <img src="country-images/liechtenstein.png" alt="Liechtenstein icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Liechtenstein</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="ch">
           <a href="switzerland.html" aria-label="Switzerland">
             <img src="country-images/switzerland.png" alt="Switzerland icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Switzerland</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="tw">
           <a href="taiwan.html" aria-label="Taiwan">
             <img src="country-images/map.png" alt="Taiwan icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Taiwan</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="jp">
           <a href="japan.html" aria-label="Japan">
             <img src="country-images/japan.png" alt="Japan icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Japan</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="kr">
           <a href="southkorea.html" aria-label="South Korea">
             <img src="country-images/southkorea.png" alt="South Korea icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">South Korea</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="aw">
           <a href="aruba.html" aria-label="Aruba">
             <img src="country-images/aruba.png" alt="Aruba icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Aruba</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="bs">
           <a href="bahamas.html" aria-label="The Bahamas">
             <img src="country-images/bahamas.png" alt="Bahamas icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">The Bahamas</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="sg">
           <a href="singapore.html" aria-label="Singapore">
             <img src="country-images/singapore.png" alt="Singapore icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Singapore</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="in">
           <a href="india.html" aria-label="India">
             <img src="country-images/india.png" alt="India icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">India</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="gb">
           <a href="uk.html" aria-label="United Kingdom">
             <img src="country-images/uk.png" alt="United Kingdom icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">UK</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="pr">
           <a href="puertorico.html" aria-label="Puerto Rico">
             <img src="country-images/puerto-rico.png" alt="Puerto Rico icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">PR</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="de">
           <a href="germany.html" aria-label="Germany">
             <img src="country-images/german.png" alt="Germany icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Germany</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="tr">
           <a href="turkiye.html" aria-label="Turkiye">
             <img src="country-images/turkey.png" alt="Turkiye icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Turkiye</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="pl">
           <a href="poland.html" aria-label="Poland">
             <img src="country-images/poland.png" alt="Poland icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Poland</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="mc">
           <a href="monaco.html" aria-label="Monaco">
             <img src="country-images/monaco.png" alt="Monaco icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Monaco</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="mx">
           <a href="mexico.html" aria-label="Mexico">
             <img src="country-images/mexico.png" alt="Mexico icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Mexico</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="gr">
           <a href="greece.html" aria-label="Greece">
             <img src="country-images/greece.png" alt="Greece icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Greece</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="ca">
           <a href="canada.html" aria-label="Canada">
             <img src="country-images/canada.png" alt="Canada icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Canada</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="fr">
           <a href="france.html" aria-label="France">
             <img src="country-images/france.png" alt="France icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">France</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="sy">
           <a href="syria.html" aria-label="Syria">
             <img src="country-images/syria.png" alt="Syria icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Syria</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="lb">
           <a href="lebanon.html" aria-label="Lebanon">
             <img src="country-images/lebanon.png" alt="Lebanon icon" class="country-images" loading="lazy" decoding="async" />
           </a>
           <span class="tooltip">Lebanon</span>
         </div>
 
-        <div class="icon-container">
+        <div class="icon-container" data-cc="us">
           <a href="usa.html" aria-label="USA">
             <img src="country-images/usa.png" alt="USA icon" class="country-images" loading="lazy" decoding="async" />
           </a>
@@ -281,6 +319,77 @@
         document.querySelectorAll('.country-images').forEach((img) => {
           observer.observe(img);
         });
+
+      // === Visited Countries Map ===
+      // Build VISITED dynamically from the country grid so the map stays in sync with your cards.
+      function getVisitedFromGrid() {
+        const codes = Array.from(document.querySelectorAll('.icon-container[data-cc]'))
+          .map(el => (el.getAttribute('data-cc') || '').trim().toUpperCase())
+          .filter(Boolean);
+        // de-duplicate and keep 2-letter ISO-3166-1 alpha-2 codes
+        return Array.from(new Set(codes.filter(cc => cc.length === 2)));
+      }
+      const VISITED = getVisitedFromGrid();
+      const TOTAL = 249; // countries + territories
+
+      function initVisitedMap() {
+        const container = document.querySelector('#world-map');
+        if (!container || typeof window.jsVectorMap === 'undefined') return;
+
+        // Build region values from the latest DOM (keeps map in sync with the grid)
+        const latestVisited = getVisitedFromGrid();
+        const values = {};
+        latestVisited.forEach(code => { values[code] = 1; });
+
+        const map = new window.jsVectorMap({
+          selector: '#world-map',
+          map: 'world',
+          zoomButtons: true,
+          markersSelectable: false,
+          regionsSelectable: false,
+          regionStyle: {
+            initial: { fill: '#dcdfe6' }, // unvisited
+            hover: { fill: '#cfd7de' }
+          },
+          series: {
+            regions: [{
+              values,
+              scale: ['#dcdfe6', '#bcd6c2'], // 0 -> unvisited, 1 -> visited (green)
+              normalizeFunction: 'polynomial'
+            }]
+          }
+        });
+
+        // Stats & progress bar
+        const visitedCount = latestVisited.length;
+        const percent = Math.round((visitedCount / TOTAL) * 1000) / 10; // 1 decimal
+        const $count = document.getElementById('visited-count');
+        const $total = document.getElementById('visited-total');
+        const $percent = document.getElementById('visited-percent');
+        const $bar = document.getElementById('visited-progress');
+        if ($count) $count.textContent = String(visitedCount);
+        if ($total) $total.textContent = String(TOTAL);
+        if ($percent) $percent.textContent = String(percent);
+        if ($bar) $bar.style.width = percent + '%';
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initVisitedMap);
+      } else {
+        initVisitedMap();
+      }
+      // === Flag watermark via CDN (FlagCDN) ===
+      // Add data-cc="xx" to each .icon-container (done in HTML above), and we derive the URL.
+      (function attachFlagBackgrounds(){
+        const els = document.querySelectorAll('.icon-container[data-cc]');
+        els.forEach((el) => {
+          const cc = (el.getAttribute('data-cc') || '').toLowerCase();
+          if (!cc) return;
+          const url = `https://flagcdn.com/w320/${cc}.png`;
+          // Expose the URL via CSS variable for the ::before watermark (we'll style in CSS next)
+          el.style.setProperty('--flag-url', `url("${url}")`);
+        });
+      })();
       })();
     </script>
   </body>
